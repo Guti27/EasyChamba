@@ -27,8 +27,9 @@
 				</div>
 
 				<div class="col-sm-12">
-					<label class="form-label">Correo:</label> <input type="text"
-						th:field="*{emailPerson}" class="form-control"></input>
+					<label class="form-label">Correo:</label> <input type="email"
+						pattern=".+@hotmail\.com" size="30" required th:field="*{emailPerson}"
+						class="form-control"></input>
 				</div>
 
 				<div class="col-sm-12">
