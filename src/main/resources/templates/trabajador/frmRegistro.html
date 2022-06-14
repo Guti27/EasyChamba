@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master/master :: head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header th:replace="master/master :: header"></header>
+	<div class="container">
+		<div>
+			<form th:action="@{/ttrabajador/save}" method="post" th:object="${t}">
+
+				<div class="col-sm-12">
+					<label class="form-label">Persona:</label> <select
+						name="selectPerson" class="form-control"
+						th:field="*{person.idPerson}">
+
+						<option th:each="p:${listaPersonas}" th:value="${p.idPerson}"
+							th:text="${p.namePerson}"
+							th:selected="(${p.idPerson}==*{person.idPerson})"></option>
+					</select>
+				</div>
+
+				<div class="col-sm-12">
+					<label class="form-label">Tipo trabajo:</label> <select
+						name="selectTipoTrabajo" class="form-control"
+						th:field="*{tipoTrabajo.idTipoTrabajo}">
+
+						<option th:each="p:${listaTipoTrabajo}"
+							th:value="${p.idTipoTrabajo}" th:text="${p.rubro}"
+							th:selected="(${p.idTipoTrabajo}==*{tipoTrabajo.idTipoTrabajo})"></option>
+					</select>
+				</div>
+
+
+
+				<div class="col-sm-12">
+					<input type="submit" value="Registrar" class="btn btn-dark"></input>
+				</div>
+
+
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

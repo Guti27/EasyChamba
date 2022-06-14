@@ -25,6 +25,7 @@ public class TipoTrabajoController {
 	@Autowired
 	private ITipoTrabajoService tipoTrabajoService;
 
+
 	@GetMapping("/new")
 	public String newTipoTrabajo(Model model) {
 		model.addAttribute("tt", new TipoTrabajo());
@@ -74,11 +75,11 @@ public class TipoTrabajoController {
 		model.addAttribute("tiptr", objTipT.get());
 		return "tipotrabajo/frmActualiza";
 	}
-	
+
 	// guardar los cambios
-		@PostMapping("/update")
-		public String updateTipoTrabajo(TipoTrabajo tipt) {
-			tipoTrabajoService.update(tipt);
-			return "redirect:/ttipotrabajo/list";
-		}
+	@PostMapping("/update")
+	public String updateTipoTrabajo(TipoTrabajo tipt) {
+		tipoTrabajoService.update(tipt);
+		return "redirect:/ttipotrabajo/list";
+	}
 }
